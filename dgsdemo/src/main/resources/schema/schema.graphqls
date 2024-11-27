@@ -1,0 +1,40 @@
+type Query {
+    shows(titleFilter: String, genreFilter: String): [Show]
+    actors(ageFilter: Int, nameFilter: String): [Actor]
+    users: [User]
+    userById(id: Int!): User
+}
+
+type Mutation {
+    addUser(name: String!, email: String!, age: Int!, phoneNumber: String, address: String, dateOfBirth: String, profilePictureUrl: String): MutationResponse
+    deleteUser(id: Int!): MutationResponse
+}
+
+type User {
+    id: Int
+    name: String
+    email: String
+    age: Int
+    phoneNumber: String
+    address: String
+    dateOfBirth: String
+    profilePictureUrl: String
+}
+
+type MutationResponse {
+    success: Boolean!
+    message: String!
+    statusCode: Int!
+}
+
+type Show {
+    title: String
+    releaseYear: Int
+    genre: String
+}
+
+type Actor {
+    name: String
+    age: Int
+    shows: [Show] # One actor can appear in multiple shows
+}
