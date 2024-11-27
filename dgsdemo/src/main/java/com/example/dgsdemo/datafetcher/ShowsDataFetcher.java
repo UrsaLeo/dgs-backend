@@ -1,4 +1,4 @@
-package com.example.dgsdemo.example;
+package com.example.dgsdemo.datafetcher;
 
 import java.util.List;
 import java.util.stream.Collectors;

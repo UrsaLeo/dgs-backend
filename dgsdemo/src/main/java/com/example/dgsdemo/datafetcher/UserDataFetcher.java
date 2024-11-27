@@ -1,4 +1,4 @@
-package com.example.dgsdemo.example;
+package com.example.dgsdemo.datafetcher;
 
 import com.example.dgsdemo.entity.User;
 import com.example.dgsdemo.repository.UserRepository;
