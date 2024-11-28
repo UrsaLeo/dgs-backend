@@ -8,8 +8,8 @@ import jakarta.persistence.Table;
 import java.time.LocalDate;
 
 @Entity
-@Table(name = "user")
-public class User {
+@Table(name = "users")
+public class Users {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,11 +23,11 @@ public class User {
     private LocalDate dateOfBirth;
     private String profilePictureUrl;
 
-    public User() {
+    public Users() {
     }
 
     // Constructor with parameters
-    public User(String name, String email, int age, String phoneNumber, String address, LocalDate dateOfBirth, String profilePictureUrl) {
+    public Users(String name, String email, int age, String phoneNumber, String address, LocalDate dateOfBirth, String profilePictureUrl) {
         this.name = name;
         this.email = email;
         this.age = age;

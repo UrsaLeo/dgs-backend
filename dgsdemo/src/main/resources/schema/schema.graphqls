@@ -21,6 +21,12 @@ type User {
     profilePictureUrl: String
 }
 
+type Book {
+    id: ID
+    title: String
+    author: String
+}
+
 type MutationResponse {
     success: Boolean!
     message: String!
