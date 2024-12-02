@@ -10,7 +10,7 @@ public class WebConfig implements WebMvcConfigurer {
     @Override
     public void addCorsMappings(CorsRegistry registry) {
         // Enable CORS only for the /graphql endpoint
-        registry.addMapping("/graphiql")
+        registry.addMapping("/graphql")
                 .allowedOrigins("http://localhost:3000") // React frontend origin
                 .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS") // Allowed HTTP methods
                 .allowedHeaders("*") // Allow all headers

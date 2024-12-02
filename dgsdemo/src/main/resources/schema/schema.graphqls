@@ -6,8 +6,26 @@ type Query {
 }
 
 type Mutation {
-    addUser(name: String!, email: String!, age: Int!, phoneNumber: String, address: String, dateOfBirth: String, profilePictureUrl: String): MutationResponse
+    addUser(
+        name: String!,
+        email: String!,
+        age: Int!,
+        phoneNumber: String,
+        address: String,
+        dateOfBirth: String,
+        profilePictureUrl: String
+    ): MutationResponse
     deleteUser(id: Int!): MutationResponse
+    editUser(
+        id: Int!,
+        name: String,
+        email: String,
+        age: Int,
+        phoneNumber: String,
+        address: String,
+        dateOfBirth: String,
+        profilePictureUrl: String
+    ): MutationResponse
 }
 
 type Mutation {

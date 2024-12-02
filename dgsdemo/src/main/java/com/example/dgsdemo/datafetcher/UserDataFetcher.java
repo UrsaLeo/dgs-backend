@@ -49,6 +49,45 @@ public class UserDataFetcher {
     }
 
     @DgsMutation
+    public MutationResponse editUser(
+            @InputArgument Integer id,
+            @InputArgument String name,
+            @InputArgument String email,
+            @InputArgument Integer age,
+            @InputArgument String phoneNumber,
+            @InputArgument String address,
+            @InputArgument String dateOfBirth,
+            @InputArgument String profilePictureUrl
+    ) {
+        // Fetch the existing user by ID
+        Optional<Users> optionalUser = userRepository.findById(id);
+
+        if (optionalUser.isEmpty()) {
+            return new MutationResponse(false, "User not found.", 404);
+        }
+
+        Users user = optionalUser.get();
+
+        // Update the fields if they are provided
+        if (name != null) user.setName(name);
+        if (email != null) user.setEmail(email);
+        if (age != null) user.setAge(age);
+        if (phoneNumber != null) user.setPhoneNumber(phoneNumber);
+        if (address != null) user.setAddress(address);
+        if (dateOfBirth != null) {
+            LocalDate dateOfBirthNew = LocalDate.parse(dateOfBirth);
+            user.setDateOfBirth(dateOfBirthNew);
+        }
+        if (profilePictureUrl != null) user.setProfilePictureUrl(profilePictureUrl);
+
+        // Save the updated user
+        userRepository.save(user);
+
+        return new MutationResponse(true, "User updated successfully.", 200);
+    }
+
+
+    @DgsMutation
     public MutationResponse deleteUser(@InputArgument Integer id) {
         try {
             // Check if the users exists
