@@ -10,15 +10,16 @@ type Mutation {
     deleteUser(id: Int!): MutationResponse
 }
 
-type User {
-    id: Int
-    name: String
-    email: String
-    age: Int
+type Mutation {
+  addUser(
+    name: String!
+    email: String!
+    age: Int!
     phoneNumber: String
     address: String
     dateOfBirth: String
     profilePictureUrl: String
+  ): MutationResponse
 }
 
 type Book {
